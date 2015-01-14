@@ -66,7 +66,8 @@ $(document).ready(function() {
 		event.preventDefault();
 		ajaxSubmit(this,function(data){
 			if (data) {
-				alert('成功')
+				alert('成功');
+				alert(data);
 				$('#add-ord-form')[0].reset();
 				doList('ord',function(data){
 					$('#list-ord').html(data);
@@ -97,6 +98,22 @@ $(document).ready(function() {
 			}
 		});
 		// return false;
+	});
+
+
+	$(document).on('click','#upd',function(event){
+		event.preventDefault();
+		// alert(this.href);
+		$.ajax({
+			url:this.href,
+			type:'post',
+			success:function(data){
+				// alert(data);
+				doList('ord',function(data){
+					$('#list-ord').html(data);
+				});
+			}
+		});
 	});
 
 	doList('ord',function(data){

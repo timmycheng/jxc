@@ -10,10 +10,12 @@ $com=$_POST['ord-com'];
 
 db_connect();
 
-
+$price==''?$price=0:$price;
 // echo $date.$name.$cate.$num.$price.$com;
 
-$sql="insert into pro3_jxc_orders values (null,'$date',$name,$cate,$num,$price,'$com')";
+$sql="insert into pro3_jxc_orders values (null,'$date',$name,$cate,$num,$price,'$com',null)";
+
+// echo $sql;
 
 $ret=mysql_query($sql) or die("Invalid query: " . mysql_error());
 
