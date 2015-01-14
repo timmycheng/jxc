@@ -67,7 +67,7 @@ $(document).ready(function() {
 		ajaxSubmit(this,function(data){
 			if (data) {
 				alert('成功');
-				alert(data);
+				// alert(data);
 				$('#add-ord-form')[0].reset();
 				doList('ord',function(data){
 					$('#list-ord').html(data);
@@ -114,6 +114,26 @@ $(document).ready(function() {
 				});
 			}
 		});
+	});
+
+	$(document).on('click','#del',function(event){
+		event.preventDefault();
+		// alert(this.href);
+		if(confirm('确定删除？')){
+			$.ajax({
+				url:this.href,
+				type:'post',
+				success:function(data){
+					// alert(data);
+					doList('ord',function(data){
+						$('#list-ord').html(data);
+					});
+					doList('pro',function(data){
+						$('#list-pro').html(data);
+					});
+				}
+			});
+		}
 	});
 
 	doList('ord',function(data){

@@ -67,7 +67,7 @@ if ($type=="pro") {
 	echo "		<th>数量</th>";
 	echo "		<th>金额</th>";
 	echo "		<th>备注</th>";
-	echo "		<th>确认</th>";
+	echo "		<th>确认/删除</th>";
 	echo "	</tr>";
 	while ($row=mysql_fetch_array($ret)) {
 		if ($row['flg']==1) {
@@ -89,11 +89,11 @@ if ($type=="pro") {
 		echo $row['comment'];
 		echo "</td><td>";
 		if ($row['flg']==0) {
-			echo "<a href='source/update.php?type=1&id=".$row['id']."' id='upd'><span class='icon-check'></span></a>";
+			echo "<a href='source/update.php?type=1&id=".$row['id']."' id='upd'><span class='icon-circle-o'></span></a>";
 		}else{
-			echo "<a href='source/update.php?type=0&id=".$row['id']."' id='upd'><span class='icon-times'></span></a>";
+			echo "<a href='source/update.php?type=0&id=".$row['id']."' id='upd'><span class='icon-check-circle-o'></span></a>";
 		}
-		
+		echo "   / <a href='source/del.php?id=".$row['id']."' id='del'><span class='icon-times'></span></a>";
 		echo "</td></tr>";
 
 	}

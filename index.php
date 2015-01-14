@@ -42,8 +42,10 @@ if(!isset($_SESSION['passwd'])){
 				<div id="add-ord">
 					<form action="source/add-ord.php" method="post" id="add-ord-form" class="form-auto">
 						<div class="form-group">
-							<label for="order-date">日期：</label>
-							<input type="date" name="order-date" id="order-date" class="input">
+							<div class="field">
+								<label for="order-date">日期：</label>
+								<input type="date" name="order-date" id="order-date" class="input" data-validate="required:必填">
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="ord-name">名称：</label>
@@ -59,8 +61,10 @@ if(!isset($_SESSION['passwd'])){
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="ord-num">数量：</label>
-							<input type="text" name="ord-num" id="ord-num" class="input">
+							<div class="field">
+								<label for="ord-num">数量：</label>
+								<input type="text" name="ord-num" id="ord-num" class="input" data-validate="required:必填,number:年龄只能填写数字">
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="ord-price">金额：</label>
@@ -71,7 +75,8 @@ if(!isset($_SESSION['passwd'])){
 							<textarea name="ord-com" id="ord-com" cols="30" rows="5" class="input"></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="增加" class="button" class="input">
+							<input type="submit" value="增加" class="button">
+							<input type="reset" value="重置" class="button form-reset">
 						</div>
 					</form>
 				</div>
