@@ -42,8 +42,10 @@ $(document).ready(function() {
 		event.preventDefault();
 		ajaxSubmit(this,function(data){
 				// alert(data);
-				if (data=="in") {
+				if (data=="admin") {
 					window.location.href='index.php';
+				}else if (data=="sale") {
+					window.location.href='sell.php'
 				};
 		});
 		// return false;

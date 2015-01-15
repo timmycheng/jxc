@@ -1,6 +1,8 @@
 <?php
+session_start();
 include 'db_connect.php';
 $type=$_GET['type'];
+$user=$_SESSION['type'];
 db_connect();
 
 // echo is_int($action);
@@ -53,10 +55,12 @@ if ($type=="pro") {
 	ifnull(a.price,0) price,
 	comment,
 	flg,
-	a.id
+	a.id,
+	a.user
 	from pro3_jxc_orders a
 	left join pro3_jxc_products b on a.pro_id=b.id
 	";
+	$user=='sale'?$sql=$sql."where a.user='$user'":$sql;
 	$ret=mysql_query($sql);
 
 	echo "<table class='table'>";
@@ -94,6 +98,11 @@ if ($type=="pro") {
 			echo "<a href='source/update.php?type=0&id=".$row['id']."' id='upd'><span class='icon-check-circle-o'></span></a>";
 		}
 		echo "   / <a href='source/del.php?id=".$row['id']."' id='del'><span class='icon-times'></span></a>";
+
+		if ($_SESSION['type']=='admin' && $row['user']!='admin') {
+			echo "   /  <span class='icon-asterisk'></span>";
+		}
+
 		echo "</td></tr>";
 
 	}

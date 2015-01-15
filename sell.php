@@ -4,8 +4,8 @@ session_start();
 if(!isset($_SESSION['passwd'])){
 	header('Location:login.php');
 }
-if($_SESSION['type']=='sale'){
-	header('Location:sell.php');
+if($_SESSION['type']=='admin'){
+	header('Location:index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -84,44 +84,13 @@ if($_SESSION['type']=='sale'){
 					</form>
 				</div>
 				<!-- add orders end -->
-				
-				<hr>
-
-				<!-- add products -->
-				<div id="add-pro">
-					<form action="source/add-pro.php" method="post" id="add-pro-form" class="form-auto">
-						<div class="form-group">
-							<label for="pro-name">名称：</label>
-							<input type="text" name="pro-name" id="pro-name" class="input">
-						</div>
-						<div class="form-group">
-							<label for="pro-price">单价：</label>
-							<input type="text" name="pro-price" id="pro-price" class="input">
-						</div>
-						<div class="form-group">
-							<label for="pro-num">初始数量：</label>
-							<input type="text" name="pro-num" id="pro-num" class="input">
-						</div>
-						<div class="form-group">
-							<input type="submit" value="增加" class="button">
-						</div>
-					</form>
-				</div>
-				<!-- add products end -->
 			</div>
-			<div class="x6">
+			<div class="x9">
 				<!-- list orders -->
 				<div id="list-ord">
 					
 				</div>
 				<!-- list orders end -->
-			</div>
-			<div class="x3">
-				<!-- list products -->
-				<div id="list-pro">
-					
-				</div>
-				<!-- list products end -->
 			</div>
 		</div>
 		<!-- main content end -->
