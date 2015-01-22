@@ -137,17 +137,25 @@ $(document).ready(function() {
 			});
 		}
 	});
-
-	doList('ord',function(data){
-		$('#list-ord').html(data);
-	});
-	doList('pro',function(data){
-		$('#list-pro').html(data);
-	});
-	doList('pro-list',function(data){
-		var o =jQuery.parseJSON(data);
-		for (var i = 0; i < o.length; i++) {
-			$('#ord-name').append('<option value='+o[i].id+'>'+o[i].name+'</option>');
-		};
-	});
+	if ($('#list-ord')) {
+		doList('ord',function(data){
+			$('#list-ord').html(data);
+		});
+	};
+	
+	if ($('#list-pro')) {
+		doList('pro',function(data){
+			$('#list-pro').html(data);
+		});
+	};
+	
+	if ($('#ord-name')) {
+		doList('pro-list',function(data){
+			var o =jQuery.parseJSON(data);
+			for (var i = 0; i < o.length; i++) {
+				$('#ord-name').append('<option value='+o[i].id+'>'+o[i].name+'</option>');
+			};
+		});
+	};
+	
 });
