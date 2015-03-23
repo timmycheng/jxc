@@ -34,6 +34,14 @@ function doList(type,fn){
 	});
 }
 
+function doSum(type,fn){
+	$.ajax({
+		url:'source/sum.php?type='+type,
+		type:'post',
+		success:fn
+	});
+}
+
 // 页面加载时函数
 $(document).ready(function() {
 
@@ -62,6 +70,14 @@ $(document).ready(function() {
 				}
 			}
 		});
+	});
+
+	$('#sum').click(function(event) {
+		window.location.href='sum.php';
+	});
+
+	$('#return').click(function(event) {
+		window.location.href='index.php';
 	});
 
 	$('#add-ord-form').submit(function(event) {
@@ -157,5 +173,19 @@ $(document).ready(function() {
 			};
 		});
 	};
+
+	if ($('#sum-left')) {
+		doSum('1',function(data){
+			$('#sum-left').html(data);
+		});
+	};
+
+	if ($('#sum-right')) {
+		doSum('2',function(data){
+			$('#sum-right').html(data);
+		});
+	};
+
+
 	
 });

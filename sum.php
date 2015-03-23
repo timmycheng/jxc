@@ -25,8 +25,11 @@ if($_SESSION['type']=='sale'){
 	<div class="container padding-big-top padding-big-bottom">
 		<!-- header -->
 		<div class="line">
-			<div class="x9">
+			<div class="x2">
 				<h1>JXC</h1>
+			</div>
+			<div class="x7 padding-top">
+				<input type="button" class="button button-little" id="return" value="返回">
 			</div>
 			<div class="x3 padding-top">
 				<div id="log" class="text-right">
@@ -40,10 +43,10 @@ if($_SESSION['type']=='sale'){
 
 		<!-- main content -->
 		<div class="line-middle">
-			<div class="x6">
+			<div class="x6" id="sum-left">
 				
 			</div>
-			<div class="x6">
+			<div class="x6" id="sum-right">
 				
 			</div>
 		</div>
